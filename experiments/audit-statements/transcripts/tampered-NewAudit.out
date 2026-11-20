@@ -1,0 +1,60 @@
+./NewAudit.lean:18:34: error: Application type mismatch: The argument
+  hz
+has type
+  riemannZeta s = 0
+but is expected to have type
+  0 < s.im
+in the application
+  riemannZeta_eq_zero_re s hz
+./NewAudit.lean:23:47: error: Application type mismatch: The argument
+  hs
+has type
+  1 / 2 < s.re
+but is expected to have type
+  1 < s.re
+in the application
+  LFunction_ne_zero_of_half_lt_re N χ s hs
+./NewAudit.lean:28:36: error: Application type mismatch: The argument
+  hs₀
+has type
+  0 < s.re
+but is expected to have type
+  N = 1
+in the application
+  LFunction_eq_zero_re N χ s hs₀
+./NewAudit.lean:33:52: error: Application type mismatch: The argument
+  s
+has type
+  ℂ
+of sort `Type` but is expected to have type
+  χ = 1
+of sort `Prop` in the application
+  LFunction_eq_zero_re_of_isPrimitive N χ hχ s
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+def RiemannZetaZerosOnLine : Prop :=
+∀ (s : ℂ), 0 < s.im → riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+def DirichletLNonvanishingRightOfHalf : Prop :=
+∀ (N : ℕ) [inst : NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+  1 < s.re → χ ≠ 1 ∨ s ≠ 1 → DirichletCharacter.LFunction χ s ≠ 0
+def DirichletLZerosOnLine : Prop :=
+∀ (N : ℕ) [inst : NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),
+  N = 1 → 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+def PrimitiveDirichletLZerosOnLine : Prop :=
+∀ (N : ℕ) [inst : NeZero N] (χ : DirichletCharacter ℂ N),
+  χ.IsPrimitive → χ = 1 → ∀ (s : ℂ), 0 < s.re → s.re < 1 → DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2
+riemannHypothesis : RiemannHypothesis
+riemannZeta_eq_zero_re : RiemannZetaZerosOnLine
+LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf
+LFunction_eq_zero_re : DirichletLZerosOnLine
+LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine
+'riemannHypothesis' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'riemannZeta_eq_zero_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LFunction_ne_zero_of_half_lt_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LFunction_eq_zero_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LFunction_eq_zero_re_of_isPrimitive' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+./NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannHypothesis
+./NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannZeta_eq_zero_re
+./NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_ne_zero_of_half_lt_re
+./NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re
+./NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re_of_isPrimitive

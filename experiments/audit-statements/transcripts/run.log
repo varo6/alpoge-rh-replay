@@ -1,0 +1,30 @@
+lean binary: rh-replay/vol/elan/toolchains/leanprover--lean4---v4.33.1/bin/lean
+Lean (version 4.33.1, x86_64-unknown-linux-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+0df444a360eaa60ab8c11dca51a86af692955474
+stub sorry warnings: 5
+=== genuine statements / OldAudit ===
+exit 1
+OldAudit.lean:18:0: error: Unexpected axiom sorryAx in riemannHypothesis
+=== genuine statements / NewAudit ===
+exit 1
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannHypothesis
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannZeta_eq_zero_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_ne_zero_of_half_lt_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re_of_isPrimitive
+stub sorry warnings: 5
+=== tampered statements / OldAudit ===
+exit 1
+OldAudit.lean:9:34: error: Application type mismatch: The argument
+OldAudit.lean:18:0: error: Unexpected axiom sorryAx in riemannHypothesis
+=== tampered statements / NewAudit ===
+exit 1
+NewAudit.lean:18:34: error: Application type mismatch: The argument
+NewAudit.lean:23:47: error: Application type mismatch: The argument
+NewAudit.lean:28:36: error: Application type mismatch: The argument
+NewAudit.lean:33:52: error: Application type mismatch: The argument
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannHypothesis
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in riemannZeta_eq_zero_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_ne_zero_of_half_lt_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re
+NewAudit.lean:52:0: error: Unexpected axiom sorryAx in LFunction_eq_zero_re_of_isPrimitive

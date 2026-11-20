@@ -1,0 +1,15 @@
+./OldAudit.lean:9:34: error: Application type mismatch: The argument
+  hz
+has type
+  riemannZeta s = 0
+but is expected to have type
+  0 < s.im
+in the application
+  riemannZeta_eq_zero_re s hz
+def RiemannHypothesis : Prop :=
+∀ (s : ℂ), riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → s ≠ 1 → s.re = 1 / 2
+riemannHypothesis : RiemannHypothesis
+'riemannHypothesis' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'riemannZeta_eq_zero_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'LFunction_eq_zero_re' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+./OldAudit.lean:18:0: error: Unexpected axiom sorryAx in riemannHypothesis
